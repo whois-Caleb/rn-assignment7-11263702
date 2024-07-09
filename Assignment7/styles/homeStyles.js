@@ -1,0 +1,111 @@
+import { StyleSheet, ImageBackground } from "react-native";
+
+export default homeStyles = StyleSheet.create({ 
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+    headerNameContainer: {
+        flexDirection: 'column',
+        backgroundColor: 'white',
+        paddingTop: 15,
+        paddingBottom: 5,
+        marginBottom: 20,
+    },
+    headerText: {
+        color: 'black',
+        fontSize: 30,
+        alignSelf: 'center',
+        fontFamily: 'Swifted Regular',
+    },
+    headerIconsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    headingContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingTop: 15,
+        backgroundColor: 'white',
+    },
+    headingText: {
+        color: 'black',
+        fontSize: 25,
+        marginLeft: 5,
+        padding: 5,
+        alignSelf: 'flex-start',
+        fontFamily: 'Swifted Regular',
+    },
+    dressDetailsContainer: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    titleText: {
+        color: 'black',
+        fontSize: 15,
+        marginLeft: 5,
+        padding: 5,
+        alignSelf: 'flex-start',
+        fontFamily: 'Swifted Regular',
+    },
+    subTitleText: {
+        color: 'black',
+        fontSize: 10,
+        marginLeft: 5,
+        padding: 2,
+        alignSelf: 'flex-start',
+        fontFamily: 'Swifted Regular',
+    },
+    price: {
+        color: 'orange',
+        fontSize: 15,
+        marginLeft: 5,
+        padding: 2,
+        alignSelf: 'flex-start',
+        fontFamily: 'Swifted Regular',
+    },
+    titleIconsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    iconCircle: {
+        height: 40,
+        width: 40,
+        borderRadius: 20,
+        backgroundColor: '#F9F9F9',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 5,
+    },
+    dressListContainer: {
+        flex: 1,
+        backgroundColor: 'white',
+        paddingBottom: 10,
+    },
+    dressContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+    },
+    dressImage: {
+        height: 205,
+        width: 160,
+    },
+    addButtonContainer: {
+        position: 'absolute',
+        bottom: 5,
+        right: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'flex-end',
+    },
+    addButton: {
+        color: 'black',
+        fontSize: 25,
+        marginRight: 5,
+        marginBottom: 5,
+    },
+});

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { fetchFonts } from '../data/requirements';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,6 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
+    fontFamily: 'Swifted Regular'
   },
   product: {
     fontSize: 18,
@@ -36,6 +38,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 16,
   },
+  navbarIconsContainer: {
+    flexDirection: 'row'
+  }
 });
 
 export default styles;
