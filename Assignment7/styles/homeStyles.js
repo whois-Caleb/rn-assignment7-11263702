@@ -1,4 +1,4 @@
-import { StyleSheet, ImageBackground } from "react-native";
+import { StyleSheet,  } from "react-native";
 
 export default homeStyles = StyleSheet.create({ 
     container: {
@@ -82,17 +82,22 @@ export default homeStyles = StyleSheet.create({
     },
     dressListContainer: {
         flex: 1,
+        flexDirection: 'column',
         backgroundColor: 'white',
         paddingBottom: 10,
     },
     dressContainer: {
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
-        padding: 10,
+        padding: 5,
+        objectFit: 'contain',
+        width: 180,
+        height: 250,
     },
     dressImage: {
-        height: 205,
+        height: 180,
         width: 160,
+        objectFit: 'contain',
     },
     addButtonContainer: {
         position: 'absolute',

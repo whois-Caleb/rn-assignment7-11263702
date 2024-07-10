@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
+import homeStyles from '../styles/homeStyles';
+import { Ionicons } from '@expo/vector-icons';
 
 const HomeScreen = ({ navigation }) => {
   const [products, setProducts] = useState([]);
@@ -8,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://192.168.119.49:3000/api/products'); // Replace with your API URL
+        const response = await axios.get('https://fakestoreapi.com/products');
         setProducts(response.data);
       } catch (error) {
         console.error('Failed to fetch products', error);
@@ -19,35 +21,48 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={homeStyles.dressListContainer}>
       <FlatList
+        ListHeaderComponent={            
+        <View style={homeStyles.headingContainer}>
+            <Text style={homeStyles.headingText}>OUR STORY</Text>
+            
+            <View style={homeStyles.titleIconsContainer}>
+                <TouchableOpacity style={homeStyles.iconCircle}>
+                        <Ionicons
+                        name='list-outline'
+                        size={25}
+                        style={{color: 'grey'}}
+                        />
+                </TouchableOpacity>
+
+                <TouchableOpacity style={homeStyles.iconCircle}>
+                        <Ionicons
+                        name='filter'
+                        size={25}
+                        style={{color: 'orange'}}
+                        />
+                </TouchableOpacity>
+            </View>
+        </View>
+        }
         data={products}
         keyExtractor={item => item.id.toString()}
+        numColumns={2}
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={styles.product}
+            style={homeStyles.dressContainer}
             onPress={() => navigation.navigate('ProductDetail', { product: item })}
           >
-            <Text>{item.name}</Text>
-            <Text>{item.price}</Text>
+            
+            <Image source={{ uri: item.image }} style={homeStyles.dressImage} />
+            <Text style={homeStyles.titleText}>{item.title}</Text>
+            <Text style={homeStyles.price}>{item.price}</Text>
           </TouchableOpacity>
         )}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  product: {
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-});
 
 export default HomeScreen;

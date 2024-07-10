@@ -1,6 +1,10 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Image, Button, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import homeStyles from '../styles/homeStyles';
+import detailsStyles from '../styles/detailsStyles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
 
 const ProductDetailScreen = ({ route, navigation }) => {
   const { product } = route.params;
@@ -23,11 +27,19 @@ const ProductDetailScreen = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>{product.name}</Text>
-      <Text>{product.description}</Text>
-      <Text>{product.price}</Text>
-      <Button title="Add to Cart" onPress={addToCart} />
+    <View style={detailsStyles.container}>
+      <Image source={{ uri: product.image }} style={detailsStyles.productImage} />
+      <View style={{flexDirection: 'row', justifyContent: 'space-between', padding:5}}>
+      <Text style={detailsStyles.categoryText}>{product.category}</Text>
+      <TouchableOpacity style={detailsStyles.cartButton} onPress={addToCart}>
+        <Ionicons name='share-outline' size={25} color="black" />
+      </TouchableOpacity>
+      </View>
+      <Text style={detailsStyles.titleText}>{product.title}</Text>
+      <Text style={detailsStyles.price}>${product.price}</Text>
+      <Text style={detailsStyles.descriptionText}>{product.description}</Text>
+      
+      
     </View>
   );
 };
