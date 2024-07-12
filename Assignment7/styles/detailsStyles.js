@@ -12,7 +12,7 @@ export default function detailStyles() {
         backgroundColor: 'white',
     },
     productImage: {
-        height: 400,
+        height: 200,
         width: '100%',
         paddingBottom: 10,
         objectFit: 'contain',
@@ -71,6 +71,58 @@ export default function detailStyles() {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    instructionsContainer: {
+        padding: 15,
+        paddingBottom: 0,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: 'grey',
+        borderBottomEndRadius: 50,
+        borderBottomStartRadius: 15,
+
+    },
+    instructionsText: {
+        color: 'black',
+        fontSize: 15,
+        marginLeft: 5,
+        padding: 5,
+        alignSelf: 'flex-start',
+        fontFamily: 'Helvetica Light',
+    },
+    shippingInfoContainer: {
+        flexDirection: 'row',
+        padding: 15,
+        paddingBottom: 0,
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+    },
+    shippingInfoHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    rateInfoContainer: {
+        padding: 15,
+        paddingBottom: 0,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
+    rateInfoText: {
+        color: 'black',
+        fontSize: 15,
+        marginLeft: 10,
+        marginTop: -15,
+        alignSelf: 'flex-start',
+        fontFamily: 'Helvetica Regular',
+    },
+    shippingInfoText: {
+        color: 'black',
+        fontSize: 15,
+        marginLeft: 5,
+        padding: 5,
+        alignSelf: 'flex-start',
+        fontFamily: 'Helvetica Light',
     },
 });
 }

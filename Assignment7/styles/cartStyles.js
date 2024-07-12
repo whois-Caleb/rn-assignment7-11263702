@@ -57,6 +57,7 @@ StyleSheet.create({
         justifyContent: 'space-between',
         width: '100%',
         padding: 15,
+        marginBottom: 30,
     },
     cartItemImage: {
         height: 150,
@@ -115,12 +116,23 @@ StyleSheet.create({
         alignSelf: 'flex-end'
       },
       footerContainer: {
-        justifyContent: 'center',
+        flex: 1,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 10,
+        padding: 5,
+        position: 'absolute',
+        width: screenWidth,
+        bottom: insets.bottom + 50,
       },
       footerText: {
+        fontSize: 15,
+        fontFamily: 'Helvetica Regular',
+      },
+      footerPrice: {
         fontSize: 20,
+        color: 'orange',
         fontFamily: 'Helvetica Regular',
       },
       checkOutButton: {

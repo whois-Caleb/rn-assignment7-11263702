@@ -68,21 +68,21 @@ const CartScreen = ({ navigation }) => {
           </View>
           </ScrollView>
         )}
-
-        ListFooterComponent={
-        <View style={cartStyles.footerContainer}>
-          <Text style={cartStyles.footerText}>EST. TOTAL: ${cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2)}
-          </Text>
-        </View>
-        }
-
       /> 
-      <TouchableOpacity style={cartStyles.checkOutButton}>
-      <View style={cartStyles.checkoutTextContainer}>
-      <Ionicons name='bag-outline' size={25} color="white" />
-      <Text style={cartStyles.checkoutText}>CHECKOUT</Text>
+      
+      <View style={cartStyles.footerContainer}>
+        <Text style={cartStyles.footerText}>EST. TOTAL: </Text>
+        <Text style={cartStyles.footerPrice}>
+          ${cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2)}
+        </Text>
       </View>
-    </TouchableOpacity>
+
+      <TouchableOpacity style={cartStyles.checkOutButton}>
+        <View style={cartStyles.checkoutTextContainer}>
+          <Ionicons name='bag-outline' size={25} color="white" />
+          <Text style={cartStyles.checkoutText}>CHECKOUT</Text>
+        </View>
+      </TouchableOpacity>
       
     </View>
   );

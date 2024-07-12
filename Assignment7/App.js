@@ -18,7 +18,7 @@ const Drawer = createDrawerNavigator();
 function ProductStackNavigator() {
   return (
     <ProductStack.Navigator screenOptions={{headerShown: false}}>
-      <ProductStack.Screen name='Home' component={HomeScreen}/>
+      <ProductStack.Screen name='Store' component={HomeScreen}/>
       <ProductStack.Screen name="Product Details" component={ProductDetailScreen}/>
     </ProductStack.Navigator>
   );
@@ -28,7 +28,7 @@ function DrawerNavigator (){
   return(
     <Drawer.Navigator initialRouteName="Home">
   <Drawer.Screen 
-  name="Home Stack" 
+  name="Home" 
   component={ProductStackNavigator}
   options={({ navigation }) => ({
     headerLeft: () => (
