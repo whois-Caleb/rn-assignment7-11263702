@@ -3,6 +3,8 @@ import { View, Text, Button, FlatList, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { addToCart } from '../data/requirements';
 import cartStyles from '../styles/cartStyles';
+import { ScrollView } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
 
 const CartScreen = ({ navigation }) => {
   const [cartItems, setCartItems] = useState([]);
@@ -39,13 +41,29 @@ const CartScreen = ({ navigation }) => {
       <FlatList
         data={cartItems}
         keyExtractor={item => item.id.toString()}
+        ListHeaderComponent={
+        <View style={cartStyles.checkoutHeader}>
+        <Text style={cartStyles.checkoutHeaderText}>CHECKOUT</Text>
+        <View style={cartStyles.underlineContainer}>
+        <View style={cartStyles.line} />
+        <View style={cartStyles.diamond} />
+        <View style={cartStyles.line} />
+      </View>
+        </View>
+        }
         renderItem={({ item }) => (
+          <ScrollView>
           <View style={cartStyles.cartItem}>
             <Image source={{ uri: item.image }} style={cartStyles.cartItemImage} />
-            <Text>{item.name}</Text>
-            <Text>{item.price}</Text>
-            <Button title="Remove" onPress={() => removeFromCart(item.id)} />
+                <View style={cartStyles.cartItemDetails}>
+                <Text style={cartStyles.cartItemCategory}>{item.category}</Text>
+                <Text style={cartStyles.cartItemTitle}>{item.title}</Text>
+                <Text style={cartStyles.cartItemPrice}>${item.price}</Text>
+              </View>
+            
+            <Ionicons name='close-circle-outline' size={25} color="red" style={cartStyles.removeIcon} onPress={() => removeFromCart(item.id)} />
           </View>
+          </ScrollView>
         )}
       />
     </View>

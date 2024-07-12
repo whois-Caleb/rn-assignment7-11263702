@@ -72,7 +72,40 @@ function DrawerNavigator (){
     })
   }
   />
-  <Drawer.Screen name="Cart" component={CartScreen} />
+  <Drawer.Screen name="Cart" 
+  component={CartScreen}
+  options={({ navigation }) => ({
+    headerLeft: () => (
+      <Ionicons
+        name="menu-outline"
+        size={30}
+        color="black"
+        style={{marginLeft: 10}}
+        onPress={() => navigation.toggleDrawer()}
+      />
+    ),
+    headerTitle: () => ( 
+      <View style={homeStyles.headerNameContainer}>
+      <Text style={homeStyles.headerText}>Open</Text> 
+      <Text style={homeStyles.headerText}>Fashion</Text>
+      </View>
+    ),
+    headerTitleAlign: 'center',
+    headerRight: () => (
+      <View style={homeStyles.headerIconsContainer}>
+        <TouchableOpacity>
+          <Ionicons
+            name="search-outline"
+            size={30}
+            color="black"
+            style={{marginRight: 10}}
+          />
+        </TouchableOpacity>
+      </View>
+    ),
+    })
+  }
+  />
 </Drawer.Navigator>
   );
 }

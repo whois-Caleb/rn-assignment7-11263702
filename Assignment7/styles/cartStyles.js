@@ -49,13 +49,63 @@ export default cartStyles = StyleSheet.create({
     cartItem: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: 'lightgrey',
+        width: '100%',
+        padding: 15,
     },
     cartItemImage: {
-        height: 100,
+        height: 150,
         width: 100,
+        objectFit: 'contain',
     },
-
+    checkoutHeader: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        paddingTop: 30,
+    },
+    checkoutHeaderText: {
+        fontSize: 30,
+        fontFamily: 'Swifted Regular',
+    },
+    underlineContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10,
+      },
+      line: {
+        height: 1,
+        width: '20%',
+        backgroundColor: 'black',
+      },
+      diamond: {
+        width: 12,
+        height: 12,
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: 'black',
+        transform: [{ rotate: '45deg' }],
+        marginHorizontal: 10,
+      },
+      cartItemDetails: {
+        width: '50%',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        paddingStart: 5,
+      },
+      cartItemPrice: {
+        fontSize: 20,
+        color: 'orange',
+        fontFamily: 'Helvetica Regular',
+      },
+      cartItemTitle: {
+        fontSize: 15,
+        fontFamily: 'Helvetica Light',
+      },
+      cartItemCategory: {
+        fontSize: 20,
+        fontFamily: 'Helvetica Regular',
+      },
+      removeIcon: {
+        alignSelf: 'flex-end'
+      },
 });
