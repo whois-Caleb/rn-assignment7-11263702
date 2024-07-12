@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Button, FlatList, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { addToCart } from '../data/requirements';
+import cartStyles from '../styles/cartStyles';
 
 const CartScreen = ({ navigation }) => {
   const [cartItems, setCartItems] = useState([]);
@@ -9,7 +11,10 @@ const CartScreen = ({ navigation }) => {
     const loadCartItems = async () => {
       try {
         const cartData = await AsyncStorage.getItem('cart');
-        setCartItems(cartData ? JSON.parse(cartData) : []);
+        const parsedData = cartData ? JSON.parse(cartData) : [];
+        // Filter out items without an id or fix them as needed
+        const validData = parsedData.filter(item => item.id !== undefined);
+        setCartItems(validData);
       } catch (error) {
         console.error('Failed to load cart items', error);
       }
@@ -30,12 +35,13 @@ const CartScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={cartStyles.container}>
       <FlatList
         data={cartItems}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.cartItem}>
+          <View style={cartStyles.cartItem}>
+            <Image source={{ uri: item.image }} style={cartStyles.cartItemImage} />
             <Text>{item.name}</Text>
             <Text>{item.price}</Text>
             <Button title="Remove" onPress={() => removeFromCart(item.id)} />
@@ -45,18 +51,5 @@ const CartScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  cartItem: {
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-});
 
 export default CartScreen;

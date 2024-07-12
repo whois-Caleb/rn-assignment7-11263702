@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, ImageBackground, FlatList, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import homeStyles from '../styles/homeStyles';
 import { Ionicons } from '@expo/vector-icons';
+import { addToCart } from '../data/requirements';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
   const [products, setProducts] = useState([]);
+  const { product } = route.params || {};
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -52,12 +54,20 @@ const HomeScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={homeStyles.dressContainer}
-            onPress={() => navigation.navigate('ProductDetail', { product: item })}
-          >
+            onPress={() => navigation.navigate('Product Details', { product: item })}
+          >  
+            <ImageBackground source={{ uri: item.image }} style={homeStyles.dressImage} resizeMode='contain'>
+              <TouchableOpacity style={homeStyles.addButtonContainer} onPress={() => addToCart(item)}>
+                <Ionicons 
+                name='add-circle-outline' 
+                style={homeStyles.addButton}
+                />
+              </TouchableOpacity>
+            </ImageBackground>
             
-            <Image source={{ uri: item.image }} style={homeStyles.dressImage} />
-            <Text style={homeStyles.titleText}>{item.title}</Text>
-            <Text style={homeStyles.price}>{item.price}</Text>
+            <Text style={homeStyles.titleText}>{item.category}</Text>
+            <Text style={homeStyles.subTitleText}>{item.title}</Text>
+            <Text style={homeStyles.price}>${item.price}</Text>
           </TouchableOpacity>
         )}
       />

@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 const screenWidth = Dimensions.get('window').width;
-export default checkoutStyles = StyleSheet.create({ 
+export default cartStyles = StyleSheet.create({ 
     container: {
         flex: 1,
         backgroundColor: 'white',
@@ -45,6 +45,17 @@ export default checkoutStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         
+    },
+    cartItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: 'lightgrey',
+    },
+    cartItemImage: {
+        height: 100,
+        width: 100,
     },
 
 });

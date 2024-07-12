@@ -1,5 +1,5 @@
 import { StyleSheet,  } from "react-native";
-
+    ``
 export default homeStyles = StyleSheet.create({ 
     container: {
         flex: 1,
@@ -44,27 +44,28 @@ export default homeStyles = StyleSheet.create({
     },
     titleText: {
         color: 'black',
-        fontSize: 15,
+        fontSize: 18,
         marginLeft: 5,
         padding: 5,
+        marginBottom: 5,
         alignSelf: 'flex-start',
-        fontFamily: 'Swifted Regular',
+        fontFamily: 'Helvetica Regular',
     },
     subTitleText: {
         color: 'black',
-        fontSize: 10,
+        fontSize: 15,
         marginLeft: 5,
-        padding: 2,
+        marginBottom: 10,
         alignSelf: 'flex-start',
-        fontFamily: 'Swifted Regular',
+        fontFamily: 'Helvetica Light',
     },
     price: {
         color: 'orange',
         fontSize: 15,
         marginLeft: 5,
-        padding: 2,
+        marginBottom: 5,
         alignSelf: 'flex-start',
-        fontFamily: 'Swifted Regular',
+        fontFamily: 'Helvetica Regular',
     },
     titleIconsContainer: {
         flexDirection: 'row',
@@ -90,14 +91,14 @@ export default homeStyles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         padding: 5,
+        marginBottom: 20,
         objectFit: 'contain',
         width: 180,
-        height: 250,
+        height: 280,
     },
     dressImage: {
         height: 180,
         width: 160,
-        objectFit: 'contain',
     },
     addButtonContainer: {
         position: 'absolute',
