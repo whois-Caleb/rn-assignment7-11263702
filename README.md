@@ -17,3 +17,9 @@
 
 - Where necessary, custom components such as icons and fonts were created or imported to address specific UI requirements not covered by React Native Elements.
 
+## Screenshots
+
+![alt text](Assignment7\assets\photo_2024-07-12_20-01-45.jpg)
+![alt text](Assignment7\assets\photo_2024-07-12_20-02-11.jpg)
+![alt text](Assignment7\assets\photo_2024-07-12_20-02-18.jpg)
+![alt text](Assignment7\assets\photo_2024-07-12_20-02-24.jpg)
