@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, FlatList, Image } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { addToCart } from '../data/requirements';
-import cartStyles from '../styles/cartStyles';
+import CartStyles from '../styles/cartStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
+import detailStyles from '../styles/detailsStyles';
 
 const CartScreen = ({ navigation }) => {
   const [cartItems, setCartItems] = useState([]);
-
+  const cartStyles = CartStyles();
+  const detailsStyles = detailStyles();
   useEffect(() => {
     const loadCartItems = async () => {
       try {
@@ -43,14 +45,15 @@ const CartScreen = ({ navigation }) => {
         keyExtractor={item => item.id.toString()}
         ListHeaderComponent={
         <View style={cartStyles.checkoutHeader}>
-        <Text style={cartStyles.checkoutHeaderText}>CHECKOUT</Text>
-        <View style={cartStyles.underlineContainer}>
-        <View style={cartStyles.line} />
-        <View style={cartStyles.diamond} />
-        <View style={cartStyles.line} />
-      </View>
+          <Text style={cartStyles.checkoutHeaderText}>CHECKOUT</Text>
+          <View style={cartStyles.underlineContainer}>
+            <View style={cartStyles.line} />
+            <View style={cartStyles.diamond} />
+            <View style={cartStyles.line} />
+          </View>
         </View>
         }
+
         renderItem={({ item }) => (
           <ScrollView>
           <View style={cartStyles.cartItem}>
@@ -65,7 +68,22 @@ const CartScreen = ({ navigation }) => {
           </View>
           </ScrollView>
         )}
-      />
+
+        ListFooterComponent={
+        <View style={cartStyles.footerContainer}>
+          <Text style={cartStyles.footerText}>EST. TOTAL: ${cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2)}
+          </Text>
+        </View>
+        }
+
+      /> 
+      <TouchableOpacity style={cartStyles.checkOutButton}>
+      <View style={cartStyles.checkoutTextContainer}>
+      <Ionicons name='bag-outline' size={25} color="white" />
+      <Text style={cartStyles.checkoutText}>CHECKOUT</Text>
+      </View>
+    </TouchableOpacity>
+      
     </View>
   );
 };
